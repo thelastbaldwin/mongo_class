@@ -69,12 +69,13 @@ def validate_login(connection, username, password, user_record):
         # STUDENTS: FILL IN THE NEXT LINE OF CODE. THE TASK IS TO QUERY THE USERS COLLECTION 
         # COLLECTION USING THE find_one METHOD, QUERYING FOR A USER WHO'S _id IS THE username
         # PASSED INTO VALIDATE LOGIN. ASSIGN THER RESULT TO A VARIABLE CALLED user
-        # XXX
+        
 
         print "About to retrieve document from users collection for username", username
 
         # YOUR WORK HERE XXX
-        # user = (just a suggestion)
+        user = users.find_one({"_id":username})
+        print user
 
         # END OF STUDENT WORK
     except:
@@ -170,7 +171,7 @@ def newuser(connection, username, password, email):
 
         # XXX YOUR WORK HERE
         print "about to insert a user"
-        # users.SOMETHING     (just a suggestion)
+        users.insert(user)
 
     except pymongo.errors.OperationFailure:
         print "oops, mongo error"
